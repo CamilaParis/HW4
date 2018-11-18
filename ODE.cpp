@@ -13,34 +13,43 @@ int main(){
     double g=10.0;
     double c=0.2;
     double m=0.2;
-    int pts=45000;
+    int pts=65000;
     double h=0.00001;
     double t[pts],x[pts],dx[pts],y[pts],dy[pts];
     double x0=0.0;
     double y0=0.0;
     double dx0[8];
     double dy0[8];
-    dx0[0]=300.*cos(45);
-    dx0[1]=300.*cos(10);
-    dx0[2]=300.*cos(20);
-    dx0[3]=300.*cos(30);
-    dx0[4]=300.*cos(40);
-    dx0[5]=300.*cos(50);
-    dx0[6]=300.*cos(60);
-    dx0[7]=300.*cos(70);
+    dx0[0]=300.*cos(45*3.1416/180);
+    dx0[1]=300.*cos(10*3.1416/180);
+    dx0[2]=300.*cos(20*3.1416/180);
+    dx0[3]=300.*cos(30*3.1416/180);
+    dx0[4]=300.*cos(40*3.1416/180);
+    dx0[5]=300.*cos(50*3.1416/180);
+    dx0[6]=300.*cos(60*3.1416/180);
+    dx0[7]=300.*cos(70*3.1416/180);
     
-    dy0[0]=300.*cos(45);
-    dy0[1]=300.*cos(10);
-    dy0[2]=300.*cos(20);
-    dy0[3]=300.*cos(30);
-    dy0[4]=300.*cos(40);
-    dy0[5]=300.*cos(50);
-    dy0[6]=300.*cos(60);
-    dy0[7]=300.*cos(70);
+    dy0[0]=300.*sin(45*3.1416/180);
+    dy0[1]=300.*sin(10*3.1416/180);
+    dy0[2]=300.*sin(20*3.1416/180);
+    dy0[3]=300.*sin(30*3.1416/180);
+    dy0[4]=300.*sin(40*3.1416/180);
+    dy0[5]=300.*sin(50*3.1416/180);
+    dy0[6]=300.*sin(60*3.1416/180);
+    dy0[7]=300.*sin(70*3.1416/180);
     double k1x,k1y,k2x,k2y,k3x,k3y,k4x,k4y,l1x,l1y,l2x,l2y,l3x,l3y,l4x,l4y;
     for(int i=0;i<pts;i++){
         t[i]=h*i;
     }
+    string name[8];
+    name[0]="datos45.txt";
+    name[1]="datos10.txt";
+    name[2]="datos20.txt";
+    name[3]="datos30.txt";
+    name[4]="datos40.txt";
+    name[5]="datos50.txt";
+    name[6]="datos60.txt";
+    name[7]="datos70.txt";
     for(int j=0; j<8;j++){
     x[0]=x0;
     dx[0]=dx0[j];
@@ -87,13 +96,10 @@ int main(){
         dy[i+1]=(1.0/6)*(l1y+2*l2y+2*l3y+l4y)+dy[i];
     }
     cout<<j<<","<<x[pts-1]<<" , "<<y[pts-1]<<endl;
-    string name[8];
-        
     ofstream file;
     file.open(name[j]);
     for(int i=0;i<pts;i++){
-        file<<t[i]<<","<<x[i]<<","<<y[i]<<","<<dx[i]<<","<<dy[i]<< endl;
-    }
+        file<<t[i]<<","<<x[i]<<","<<y[i]<<","<<dx[i]<<","<<dy[i]<< endl;}
     file.close();
     }
 }
