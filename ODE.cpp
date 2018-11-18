@@ -35,7 +35,7 @@ int main(){
         l1x=h*f2x(t[i],x[i],y[i],dx[i],dy[i],c,m);
         
         k1y=h*f1y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);
-        l1y=h*f2y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);        
+        l1y=h*f2y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);
         
         
         k2x=h*f1x(t[i]+0.5*h,x[i]+k1x*0.5,y[i]+k1y*0.5,dx[i]+l1x*0.5,dy[i]+l1y*0.5,c,m);
@@ -67,6 +67,12 @@ int main(){
         
         y[i+1]=(1.0/6)*(k1y+2*k2y+2*k3y+k4y)+y[i];
         dy[i+1]=(1.0/6)*(l1y+2*l2y+2*l3y+l4y)+dy[i];
+    }
+    cout<<x[pts-1]<<" , "<<y[pts-1]<<endl;
+    ofstream file;
+    file.open("datos.txt");
+    for(int i=0;i<pts;i++){
+        file<<t[i]<<","<<x[i]<<","<<y[i]<<","<<dx[i]<<","<<dy[i]<< endl;
     }
     
 }
