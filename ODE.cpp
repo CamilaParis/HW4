@@ -35,8 +35,38 @@ int main(){
         l1x=h*f2x(t[i],x[i],y[i],dx[i],dy[i],c,m);
         
         k1y=h*f1y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);
-        l1y=h*f2y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);
+        l1y=h*f2y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);        
         
+        
+        k2x=h*f1x(t[i]+0.5*h,x[i]+k1x*0.5,y[i]+k1y*0.5,dx[i]+l1x*0.5,dy[i]+l1y*0.5,c,m);
+        l2x=h*f2x(t[i]+0.5*h,x[i]+k1x*0.5,y[i]+k1y*0.5,dx[i]+l1x*0.5,dy[i]+l1y*0.5,c,m);
+        
+        k2y=h*f1y(t[i]+0.5*h,x[i]+k1x*0.5,y[i]+k1y*0.5,dx[i]+l1x*0.5,dy[i]+l1y*0.5,c,g,m);
+        l2y=h*f2y(t[i]+0.5*h,x[i]+k1x*0.5,y[i]+k1y*0.5,dx[i]+l1x*0.5,dy[i]+l1y*0.5,c,g,m);
+        
+        
+        
+        k3x=h*f1x(t[i]+0.5*h,x[i]+k2x*0.5,y[i]+k2y*0.5,dx[i]+l2x*0.5,dy[i]+l2y*0.5,c,m);
+        l3x=h*f2x(t[i]+0.5*h,x[i]+k2x*0.5,y[i]+k2y*0.5,dx[i]+l2x*0.5,dy[i]+l2y*0.5,c,m);
+        
+        k3y=h*f1y(t[i]+0.5*h,x[i]+k2x*0.5,y[i]+k2y*0.5,dx[i]+l2x*0.5,dy[i]+l2y*0.5,c,g,m);
+        l3y=h*f2y(t[i]+0.5*h,x[i]+k2x*0.5,y[i]+k2y*0.5,dx[i]+l2x*0.5,dy[i]+l2y*0.5,c,g,m);
+        
+        
+        
+        k4x=h*f1x(t[i]+h,x[i]+k3x,y[i]+k3y,dx[i]+l3x,dy[i]+l3y,c,m);
+        l4x=h*f2x(t[i]+h,x[i]+k3x,y[i]+k3y,dx[i]+l3x,dy[i]+l3y,c,m);
+        
+        k4y=h*f1y(t[i]+h,x[i]+k3x,y[i]+k3y,dx[i]+l3x,dy[i]+l3y,c,g,m);
+        l4y=h*f2y(t[i]+h,x[i]+k3x,y[i]+k3y,dx[i]+l3x,dy[i]+l3y,c,g,m);
+        
+        
+        
+        x[i+1]=(1.0/6)*(k1x+2*k2x+2*k3x+k4x)+x[i];
+        dx[i+1]=(1.0/6)*(l1x+2*l2x+2*l3x+l4x)+dx[i];
+        
+        y[i+1]=(1.0/6)*(k1y+2*k2y+2*k3y+k4y)+y[i];
+        dy[i+1]=(1.0/6)*(l1y+2*l2y+2*l3y+l4y)+dy[i];
     }
     
 }
