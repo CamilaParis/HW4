@@ -18,16 +18,34 @@ int main(){
     double t[pts],x[pts],dx[pts],y[pts],dy[pts];
     double x0=0.0;
     double y0=0.0;
-    double dx0=150.*sqrt(2);
-    double dy0=150.*sqrt(2);
+    double dx0[8];
+    double dy0[8];
+    dx0[0]=300.*cos(45);
+    dx0[1]=300.*cos(10);
+    dx0[2]=300.*cos(20);
+    dx0[3]=300.*cos(30);
+    dx0[4]=300.*cos(40);
+    dx0[5]=300.*cos(50);
+    dx0[6]=300.*cos(60);
+    dx0[7]=300.*cos(70);
+    
+    dy0[0]=300.*cos(45);
+    dy0[1]=300.*cos(10);
+    dy0[2]=300.*cos(20);
+    dy0[3]=300.*cos(30);
+    dy0[4]=300.*cos(40);
+    dy0[5]=300.*cos(50);
+    dy0[6]=300.*cos(60);
+    dy0[7]=300.*cos(70);
     double k1x,k1y,k2x,k2y,k3x,k3y,k4x,k4y,l1x,l1y,l2x,l2y,l3x,l3y,l4x,l4y;
     for(int i=0;i<pts;i++){
         t[i]=h*i;
     }
+    for(int j=0; j<8;j++){
     x[0]=x0;
-    dx[0]=dx0;
+    dx[0]=dx0[j];
     y[0]=y0;
-    dy[0]=dy0;
+    dy[0]=dy0[j];
     
     for(int i=0;i<pts-1;i++){
         
@@ -68,13 +86,16 @@ int main(){
         y[i+1]=(1.0/6)*(k1y+2*k2y+2*k3y+k4y)+y[i];
         dy[i+1]=(1.0/6)*(l1y+2*l2y+2*l3y+l4y)+dy[i];
     }
-    cout<<x[pts-1]<<" , "<<y[pts-1]<<endl;
+    cout<<j<<","<<x[pts-1]<<" , "<<y[pts-1]<<endl;
+    string name[8];
+        
     ofstream file;
-    file.open("datos.txt");
+    file.open(name[j]);
     for(int i=0;i<pts;i++){
         file<<t[i]<<","<<x[i]<<","<<y[i]<<","<<dx[i]<<","<<dy[i]<< endl;
     }
-    
+    file.close();
+    }
 }
 
 double f1x(double t,double x,double y, double dx, double dy, double c, double m){
