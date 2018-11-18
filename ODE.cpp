@@ -28,6 +28,17 @@ int main(){
     dx[0]=dx0;
     y[0]=y0;
     dy[0]=dy0;
+    
+    for(int i=0;i<pts-1;i++){
+        
+        k1x=h*f1x(t[i],x[i],y[i],dx[i],dy[i],c,m);
+        l1x=h*f2x(t[i],x[i],y[i],dx[i],dy[i],c,m);
+        
+        k1y=h*f1y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);
+        l1y=h*f2y(t[i],x[i],y[i],dx[i],dy[i],c,g,m);
+        
+    }
+    
 }
 
 double f1x(double t,double x,double y, double dx, double dy, double c, double m){
