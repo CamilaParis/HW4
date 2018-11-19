@@ -54,10 +54,15 @@ int main(){
             Tini[k][h] = Tfut[k][h];
             Tfut[k][h] = Tfut2[k][h];
             }}}
-    //////////////////////////////////////////////////////////////////////////////////////////////
-    for (int i=0; i<pts;i++){
-    for (int j=0; j<pts; j++){
-        cout <<Tinir[i][j]<<","<<Tfut[i][j]<<endl;}
-}
+
+    //for (int i=0; i<pts;i++){
+  //  for (int j=0; j<pts; j++){
+   //     cout <<Tinir[i][j]<<","<<Tfut[i][j]<<endl;}}
+    ofstream file;
+    file.open("datosPDE.txt");
+    for(int i=0;i<pts;i++){
+        for(int j=0;j<pts;j++){
+            file<<Tinir[i][j]<<","<<Tfut[i][j]<<endl;}}
+    file.close();
 }
 
