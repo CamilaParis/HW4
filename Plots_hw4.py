@@ -1,4 +1,5 @@
 import numpy as np
+np.set_printoptions(threshold=np.nan)
 import matplotlib.pyplot as plt
 ##Para ODE.cpp
 data45=np.genfromtxt("datos45.txt", delimiter=",")
@@ -43,13 +44,16 @@ plt.close()
 plt.figure()
 plt.ylim(0,0.6)
 plt.xlim(0,0.8)
-plt.plot(x10,y10)
-plt.plot(x20,y20)
-plt.plot(x30,y30)
-plt.plot(x40,y40)
-plt.plot(x50,y50)
-plt.plot(x60,y60)
+plt.plot(x10,y10,label="10")
+plt.plot(x20,y20,label="20")
+plt.plot(x30,y30,label="30")
+plt.plot(x40,y40,label="40")
+plt.plot(x50,y50,label="50")
+plt.plot(x60,y60,label="60")
+plt.plot(x70,y70,label="70")
+plt.legend(loc="best")
 plt.savefig("Grafs.pdf")
+plt.close()
 mayor=[]
 angulo=[]
 for i in range(len(y45)):
@@ -96,3 +100,31 @@ print("La distancia recorrida es mayor para un angulo de", angulo[np.argmax(mayo
 
 #Para PDE.cpp
 dataPDE=np.genfromtxt("datosPDE.txt",delimiter=",")
+i=dataPDE[:,0]
+j=dataPDE[:,1]
+Tini=dataPDE[:,2]
+Tfut=dataPDE[:,3]
+m=np.zeros((50, 50))
+for k in range(len(Tini)):
+    m[int(i[k]),int(j[k])]=Tini[k]
+print(m)
+
+#plt.plot(np.arange(len(Tini)),Tini)
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import cm
+
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+x = np.linspace(0, 50, 50)
+y = np.linspace(0, 50, 50)
+
+X, Y=np.meshgrid(x,y)
+Z = m
+#ax.plot_surface(X, Y, Z, color='b')
+surf = ax.plot_surface(X, Y, Z, cmap=cm.autumn,linewidth=0, antialiased=False)
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.show()
+#plt.show()
