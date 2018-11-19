@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+##Para ODE.cpp
 data45=np.genfromtxt("datos45.txt", delimiter=",")
 data10=np.genfromtxt("datos10.txt", delimiter=",")
 data20=np.genfromtxt("datos20.txt", delimiter=",")
@@ -38,13 +38,18 @@ plt.figure()
 plt.ylim(0,0.6)
 plt.xlim(0,0.8)
 plt.plot(x45,y45)
+plt.savefig("Graf45.pdf")
+plt.close()
+plt.figure()
+plt.ylim(0,0.6)
+plt.xlim(0,0.8)
 plt.plot(x10,y10)
 plt.plot(x20,y20)
 plt.plot(x30,y30)
 plt.plot(x40,y40)
 plt.plot(x50,y50)
 plt.plot(x60,y60)
-plt.show()
+plt.savefig("Grafs.pdf")
 mayor=[]
 angulo=[]
 for i in range(len(y45)):
@@ -88,3 +93,6 @@ for i in range(len(y70)):
         angulo.append(70)
         break
 print("La distancia recorrida es mayor para un angulo de", angulo[np.argmax(mayor)])
+
+#Para PDE.cpp
+dataPDE=np.genfromtxt("datosPDE.txt",delimiter=",")
