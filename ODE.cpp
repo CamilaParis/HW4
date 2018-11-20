@@ -13,7 +13,7 @@ int main(){
     double g=10.0;
     double c=0.2;
     double m=0.2;
-    int pts=65000;
+    int pts=200000;
     double h=0.00001;
     double t[pts],x[pts],dx[pts],y[pts],dy[pts];
     double x0=0.0;
@@ -95,7 +95,7 @@ int main(){
         y[i+1]=(1.0/6)*(k1y+2*k2y+2*k3y+k4y)+y[i];
         dy[i+1]=(1.0/6)*(l1y+2*l2y+2*l3y+l4y)+dy[i];
     }
-    cout<<j<<","<<x[pts-1]<<" , "<<y[pts-1]<<endl;
+    //cout<<j<<","<<x[pts-1]<<" , "<<y[pts-1]<<endl;
     ofstream file;
     file.open(name[j]);
     for(int i=0;i<pts;i++){
@@ -117,5 +117,5 @@ double f2y(double t,double x, double y, double dx, double dy, double c, double g
     return -g-c*nv(dy,dx)*dy/m;
 }
 double nv(double vy,double vx){
-    return sqrt(vy*vy+vx*vx)*sqrt(vy*vy+vx*vx);
+    return sqrt(vy*vy+vx*vx);
 }
