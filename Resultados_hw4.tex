@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Tarea 4}
+\author{Maria Camila Paris}
+\date{Noviembre 2018}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{ODE}
+Se grafica un tiro parabolico con resistencia. En la grafica a continuacion se muestra el tiro parabolico con un angulo de 45 grados. En la siguiente se muestra el mismo tiro para diferentes angulos y se muestra a cual angulo corresponde cada curva. La distancia recorrida del proyectil es mayor para la trayectoria que corresponde a un angulo de 20 grados. 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.25]{Graf45.pdf}
+\caption{Grafica 45}
+\label{fig:Graf45}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.25]{Grafs.pdf}
+\caption{Graficas}
+\label{fig:Grafs}
+\end{figure}
+
+\section{PDE}
+Al solucionar la ecuacion de difusion en dos dimensiones se puede abordar el problema. Se trata de una varilla metalica de 10cm de diametro que esta entre una roca con ciertas caracteristicas. La temperatura de la varilla se mantiene a 100 grados centigrados y se considera una seccion de la roca cuadrada (dos dimensiones) de 50cm por 50cm alrededor de la varilla y perpendicular a ella. Se tienen en cuenta tres casos: en el caso 1 se tienen condiciones de frontera fijas a 10 grados centigrados; en el caso 2 se tienen condiciones de frontera abiertas, y en el caso 3 se tienen condiciones de frontera periodicas.
+A continuacion se presentan las graficas correspondientes a las condiciones iniciales, dos estados intermedios del sistema y la configuracion de equilibrio para cada caso. En el caso 1 la temperatura alrededor de la barra aumenta de manera uniforme, mientras que para el caso 2 y 3 la temperatura evoluciona de forma muy similar, aumentando mas la temperatura en la mitad de cada borde de la piedra a comparacion de las esquinas de la misma.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{CondicionesIniciales.pdf}
+\includegraphics[scale=0.3]{Tiempo1Caso1.pdf}
+\includegraphics[scale=0.3]{Tiempo2Caso1.pdf}
+\includegraphics[scale=0.3]{Tiempo3Caso1.pdf}
+\caption{Graficas para caso 1}
+\label{fig:GrafPDE1}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{CondicionesIniciales.pdf}
+\includegraphics[scale=0.3]{Tiempo1Caso2.pdf}
+\includegraphics[scale=0.3]{Tiempo2Caso2.pdf}
+\includegraphics[scale=0.3]{Tiempo3Caso2.pdf}
+\caption{Graficas para caso 2}
+\label{fig:GrafPDE2}
+
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{CondicionesIniciales.pdf}
+\includegraphics[scale=0.3]{Tiempo1Caso3.pdf}
+\includegraphics[scale=0.3]{Tiempo2Caso3.pdf}
+\includegraphics[scale=0.3]{Tiempo3Caso3.pdf}
+\caption{Graficas para caso 3}
+\label{fig:GrafPDE3}
+
+
+\end{figure}
+
+\end{document}
+
+
