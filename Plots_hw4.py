@@ -41,12 +41,16 @@ y70=data70[:,2]
 plt.figure()
 plt.ylim(0,6)
 plt.xlim(0,6)
+plt.xlabel("x")
+plt.ylabel("y")
 plt.plot(x45,y45)
 plt.savefig("Graf45.pdf")
 plt.close()
 plt.figure()
 plt.ylim(0,6)
 plt.xlim(0,6)
+plt.xlabel("x")
+plt.ylabel("y")
 plt.plot(x10,y10,label="10")
 plt.plot(x20,y20,label="20")
 plt.plot(x30,y30,label="30")
@@ -57,7 +61,50 @@ plt.plot(x70,y70,label="70")
 plt.legend(loc="best")
 plt.savefig("Grafs.pdf")
 plt.close()
-
+mayor=[]
+angulo=[]
+for i in range(len(y45)):
+    if(y45[i]<0 and x45[i]>0.4):
+        mayor.append(x45[i])
+        print("Para el angulo de 45 el proyectil recorre una distancia de ", x45[i])
+        angulo.append(45)
+        break
+for i in range(len(y10)):
+    if(y10[i]<0 and x10[i]>0.4):
+        mayor.append(x10[i])
+        angulo.append(10)
+        break
+for i in range(len(y20)):
+    if(y20[i]<0 and x20[i]>0.4):
+        mayor.append(x20[i])
+        angulo.append(20)
+        break
+for i in range(len(y30)):
+    if(y30[i]<0 and x30[i]>0.4):
+        mayor.append(x30[i])
+        angulo.append(30)
+        break
+for i in range(len(y40)):
+    if(y40[i]<0 and x40[i]>0.4):
+        mayor.append(x40[i])
+        angulo.append(40)
+        break
+for i in range(len(y50)):
+    if(y50[i]<0 and x50[i]>0.4):
+        mayor.append(x50[i])
+        angulo.append(50)
+        break
+for i in range(len(y60)):
+    if(y60[i]<0 and x60[i]>0.4):
+        mayor.append(x60[i])
+        angulo.append(60)
+        break
+for i in range(len(y70)):
+    if(y70[i]<0 and x70[i]>0.4):
+        mayor.append(x70[i])
+        angulo.append(70)
+        break
+print("La distancia recorrida es mayor para un angulo de", angulo[np.argmax(mayor)])
 
 
 #Para PDE.cpp
@@ -128,6 +175,9 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 Z=m
 plt.title("Condiciones Iniciales")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("Temperatura")
 surf = ax.plot_surface(X, Y, Z, cmap=cm.autumn,linewidth=0, antialiased=False)
 fig.colorbar(surf, shrink=0.5, aspect=5)
 plt.savefig("CondicionesIniciales.pdf")
@@ -137,6 +187,9 @@ fig1 = plt.figure()
 ax1 = fig1.add_subplot(111, projection='3d')
 Z1=m1
 plt.title("Tiempo 1 Caso 1")
+ax1.set_xlabel("x")
+ax1.set_ylabel("y")
+ax1.set_zlabel("Temperatura")
 surf1 = ax1.plot_surface(X, Y, Z1, cmap=cm.autumn,linewidth=0, antialiased=False)
 fig1.colorbar(surf1, shrink=0.5, aspect=5)
 plt.savefig("Tiempo1Caso1.pdf")
@@ -147,6 +200,9 @@ fig2 = plt.figure()
 ax2 = fig2.add_subplot(111, projection='3d')
 Z2=m2
 plt.title("Tiempo 2 Caso 1")
+ax2.set_xlabel("x")
+ax2.set_ylabel("y")
+ax2.set_zlabel("Temperatura")
 surf2 = ax2.plot_surface(X, Y, Z2, cmap=cm.autumn,linewidth=0, antialiased=False)
 fig2.colorbar(surf2, shrink=0.5, aspect=5)
 plt.savefig("Tiempo2Caso1.pdf")
@@ -156,6 +212,9 @@ fig3 = plt.figure()
 ax3 = fig3.add_subplot(111, projection='3d')
 Z3=m3
 plt.title("Tiempo 3 Caso 1")
+ax3.set_xlabel("x")
+ax3.set_ylabel("y")
+ax3.set_zlabel("Temperatura")
 surf3 = ax3.plot_surface(X, Y, Z3, cmap=cm.autumn,linewidth=0, antialiased=False)
 fig3.colorbar(surf3, shrink=0.5, aspect=5)
 plt.savefig("Tiempo3Caso1.pdf")
@@ -165,6 +224,9 @@ figa1 = plt.figure()
 axa1 = figa1.add_subplot(111, projection='3d')
 Za1=ma1
 plt.title("Tiempo 1 Caso 2")
+axa1.set_xlabel("x")
+axa1.set_ylabel("y")
+axa1.set_zlabel("Temperatura")
 surfa1 = axa1.plot_surface(X, Y, Za1, cmap=cm.autumn,linewidth=0, antialiased=False)
 figa1.colorbar(surfa1, shrink=0.5, aspect=5)
 plt.savefig("Tiempo1Caso2.pdf")
@@ -175,6 +237,9 @@ figa2 = plt.figure()
 axa2 = figa2.add_subplot(111, projection='3d')
 Za2=ma2
 plt.title("Tiempo 2 Caso 2")
+axa2.set_xlabel("x")
+axa2.set_ylabel("y")
+axa2.set_zlabel("Temperatura")
 surfa2 = axa2.plot_surface(X, Y, Za2, cmap=cm.autumn,linewidth=0, antialiased=False)
 figa2.colorbar(surfa2, shrink=0.5, aspect=5)
 plt.savefig("Tiempo2Caso2.pdf")
@@ -184,6 +249,9 @@ figa3 = plt.figure()
 axa3 = figa3.add_subplot(111, projection='3d')
 Za3=ma3
 plt.title("Tiempo 3 Caso 2")
+axa3.set_xlabel("x")
+axa3.set_ylabel("y")
+axa3.set_zlabel("Temperatura")
 surfa3 = axa3.plot_surface(X, Y, Za3, cmap=cm.autumn,linewidth=0, antialiased=False)
 figa3.colorbar(surfa3, shrink=0.5, aspect=5)
 plt.savefig("Tiempo3Caso2.pdf")
@@ -193,6 +261,9 @@ figp1 = plt.figure()
 axp1 = figp1.add_subplot(111, projection='3d')
 Zp1=mp1
 plt.title("Tiempo 1 Caso 3")
+axp1.set_xlabel("x")
+axp1.set_ylabel("y")
+axp1.set_zlabel("Temperatura")
 surfp1 = axp1.plot_surface(X, Y, Zp1, cmap=cm.autumn,linewidth=0, antialiased=False)
 figp1.colorbar(surfp1, shrink=0.5, aspect=5)
 plt.savefig("Tiempo1Caso3.pdf")
@@ -203,6 +274,9 @@ figp2 = plt.figure()
 axp2 = figp2.add_subplot(111, projection='3d')
 Zp2=mp2
 plt.title("Tiempo 2 Caso 3")
+axp2.set_xlabel("x")
+axp2.set_ylabel("y")
+axp2.set_zlabel("Temperatura")
 surfp2 = axp2.plot_surface(X, Y, Zp2, cmap=cm.autumn,linewidth=0, antialiased=False)
 figp2.colorbar(surfp2, shrink=0.5, aspect=5)
 plt.savefig("Tiempo2Caso3.pdf")
@@ -212,6 +286,9 @@ figp3 = plt.figure()
 axp3 = figp3.add_subplot(111, projection='3d')
 Zp3=mp3
 plt.title("Tiempo 3 Caso 3")
+axp3.set_xlabel("x")
+axp3.set_ylabel("y")
+axp3.set_zlabel("Temperatura")
 surfp3 = axp3.plot_surface(X, Y, Zp3, cmap=cm.autumn,linewidth=0, antialiased=False)
 figp3.colorbar(surfp3, shrink=0.5, aspect=5)
 plt.savefig("Tiempo3Caso3.pdf")
