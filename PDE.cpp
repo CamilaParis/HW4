@@ -10,8 +10,8 @@ int main(){
     double delta_x = 0.1;
     double delta_t = 0.5;
     double t[3];
-    t[0]=500;
-    t[1]=5000;
+    t[0]=100;
+    t[1]=500;
     t[2]=50000;
     double v=k/(cp*p);
     double r = v*delta_t / (delta_x*delta_x);
